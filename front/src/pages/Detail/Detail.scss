@@ -1,0 +1,26 @@
+.detailCard {
+    width: 80%;
+    margin: 140px auto;
+    gap: 20px;
+    display: flex;
+    height: 450px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    img {
+        width: 50%;
+        height: 100%;
+    }
+    &Body {
+        text-align: center;
+        width: 48%;
+        margin: auto;
+        height: 100%;
+        padding: 0 10px;
+        padding-top: 70px;
+        h2 {
+            font-size: 36px;
+            padding-bottom: 10px;
+        }
+    }
+}
