@@ -29,7 +29,7 @@ const Header = () => {
     <div className='icons' id='icons'>
     <IoSearch />
     <LuUser2 />
-    <TiShoppingCart />
+    <Link to={'basket'}><TiShoppingCart  /></Link>
     </div>
 
     </div>

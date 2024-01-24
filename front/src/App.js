@@ -10,9 +10,11 @@ const router = createBrowserRouter(Router);
 function App() {
   const [item, setItem] = useState([]);
   const [error, setError] = useState('');
+  const [original,setOriginal]=useState([])
   const [wishListItems, setWishlistItems] = useState(localStorage.getItem("wishlistItems") ? JSON.parse(localStorage.getItem("wishlistItems")) : []);
   const [sort, setSort] = useState('asc');
   const [search, setSearch] = useState('');
+  const [basket, setBasket] = useState(localStorage.getItem("basket") ? JSON.parse(localStorage.getItem("basket")) : []);
 
   const searchItem = item.filter(data => data.name.toLowerCase().trim().includes(search.toLowerCase().trim()));
 
@@ -36,15 +38,15 @@ function App() {
     toast.success("Item deleted");
   };
 
-  const sortData = (type) => {
+  const sortData = (ana) => {
     const sortedData = [...item];
     sortedData.sort((a, b) => {
       const priceA = a.price;
       const priceB = b.price;
-      return type === 'asc' ? priceA - priceB : priceB - priceA;
+      return ana === 'asc' ? priceA - priceB : priceB - priceA;
     });
     setItem(sortedData);
-    setSort(type);
+    setSort(ana);
   };
 
   const sortByAsc = () => {
@@ -56,6 +58,11 @@ function App() {
     const sortedData = [...item].sort((a, b) => b.name.localeCompare(a.name));
     setItem(sortedData);
   };
+  
+  // const notSort = () => {
+  //   setItem([...original]);
+  //   setSort([]); 
+  // };
 
   useEffect(() => {
     axios.get("http://localhost:3020/cards").then(res => {
@@ -66,6 +73,55 @@ function App() {
     });
   }, []);
 
+
+  const addToBasket = (product) => {
+    let target = basket.find((baskets) => baskets.product._id === product._id);
+
+    if (target) {
+      target.count += 1;
+      target.totalPrice = target.product.price * target.count;
+      setBasket([...basket]);
+      localStorage.setItem("basket", JSON.stringify([...basket]));
+      toast.success(`${product.name} added to basket!`);
+    } else  {
+      const baskets = {
+        product: product,
+        count: 1,
+        totalPrice: product.price
+      };
+      setBasket([...basket, baskets]);
+      localStorage.setItem("basket", JSON.stringify([...basket, baskets]));
+      toast.success(`${product.name} added to basket!`);
+    }
+  };
+
+  const handleBasketDelete = (id) => {
+    let basketdelete = basket.find(item => item.product._id == id);
+    basket.splice(basket.indexOf(basketdelete), 1);
+    setBasket([...basket]);
+    localStorage.setItem("basket", JSON.stringify([...basket]));
+    toast.success(`Product deleted from basket!`)
+
+  };
+
+  const decrementCounter = (baskets) => {
+    let target = basket.find((item) => item.product._id === baskets.product._id);
+
+    if (target.count > 1) {
+      target.count -= 1;
+      target.totalPrice = parseInt(target.product.price) * parseInt(target.count);
+      setBasket([...basket]);
+      localStorage.setItem("basket", JSON.stringify([...basket]));
+      toast.success(`Product decrease from basket`)
+    } else {
+      const updatedBasket = basket.filter(item => item.product._id !== baskets.product._id);
+      setBasket(updatedBasket);
+      localStorage.setItem("basket", JSON.stringify(updatedBasket));
+
+    }
+  };
+
+
   const data = {
     item,
     setItem,
@@ -75,6 +131,9 @@ function App() {
     setWishlistItems,
     sort,
     setSort,
+    original,
+    setOriginal,
+    // notSort,
     search,
     setSearch,
     sortData,
@@ -82,7 +141,12 @@ function App() {
     sortByDesc,
     searchItem,
     addToWishlist,
-    removeFromWishlist
+    removeFromWishlist,
+    basket, 
+    setBasket,
+    addToBasket,
+    handleBasketDelete,
+    decrementCounter
   };
   return (
     <MainContext.Provider value={data}>

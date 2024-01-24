@@ -104,6 +104,7 @@ const Add = () => {
       </button>
       <button className='sortAsc' onClick={sortByAsc}>A-Z</button>
       <button className='sortDesc' onClick={sortByDesc}>Z-A</button>
+      {/* <button onClick={notSort}>Reset Sorting</button> */}
            <table>
             <thead>
                 <tr>

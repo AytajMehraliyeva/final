@@ -1,4 +1,5 @@
 import Add from "../pages/Add/Add"
+import Basket from "../pages/Basket/Basket"
 import Detail from "../pages/Detail/Detail"
 import Home from "../pages/Home/Home"
 import SiteRoot from "../pages/SiteRoot"
@@ -25,6 +26,10 @@ children:[{
 {
     path:"wishlist",
     element:<Wishlist/>
+},
+{
+    path:'basket',
+    element:<Basket/>
 }
 ]
 }]
