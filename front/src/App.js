@@ -71,13 +71,13 @@ function App() {
 
   
   const addToBasket = (product) => {
-    const target=basket.find((baskets)=>baskets.product._id===product._id)
+    let target = basket.find((baskets) => baskets.product._id === product._id);
 
-  if(target){
-    target.count+=1
-    target.totalPrice=parseFloat((target.product.price * target.count).toFixed(2))
-    setBasket([...basket])
-    localStorage.setItem('basket', JSON.stringify([...basket]))
+    if (target) {
+      target.count += 1;
+      target.totalPrice=parseFloat((target.product.price * target.count).toFixed(2))
+      setBasket([...basket]);
+      localStorage.setItem("basket", JSON.stringify([...basket]));
       toast.success(`${product.name} added to basket!`);
     } else  {
       const baskets = {
