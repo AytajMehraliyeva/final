@@ -28,7 +28,7 @@ const Header = () => {
     </ul>
     <div className='icons' id='icons'>
     <IoSearch />
-    <LuUser2 />
+    <Link to={'register'}><LuUser2 /></Link>
     <Link to={'basket'}><TiShoppingCart  /></Link>
     </div>
 

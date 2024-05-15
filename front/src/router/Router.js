@@ -26,6 +26,13 @@ children:[{
 {
     path:"wishlist",
     element:<Wishlist/>
+},{
+path:"register",
+element:<Register/>
+},
+{
+path:"login",
+element:<Login/>
 },
 {
     path:'basket',
