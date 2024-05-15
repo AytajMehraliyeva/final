@@ -70,57 +70,73 @@ function App() {
   }, []);
 
   
-  const addToBasket=(product)=>{
+  const addToBasket = (product) => {
     const target=basket.find((baskets)=>baskets.product._id===product._id)
-  
-    if(target){
-      target.count+=1
-      target.totalPrice=parseFloat((target.product.price * target.count).toFixed(2))
-      setBasket([...basket])
-      localStorage.setItem('basket', JSON.stringify([...basket]))
-      alert('Product add basket')
-    }else{
-      const baskets={
-        product:product,
-        count:1,
-        totalPrice:product.price
-      }
-      setBasket([...basket,baskets])
-      localStorage.setItem('basket', JSON.stringify([...basket,baskets]))
-      alert('Product add basket')
-    }
-  }
-  
-  
-  const handleBasketDelete = (id) => {
-    let deletedBasket = basket.find(item => item.product._id == id)
-     basket.splice(basket.indexOf(deletedBasket), 1)
-     setBasket([...basket])
-     localStorage.setItem('basket', JSON.stringify([...basket]))
-    
-  }
-  
-  const decrementCounter = (baskets) => {
-    const targetIndex = basket.findIndex((item) => item.product._id === baskets.product._id);
-  
-    if (targetIndex !== -1) {
-      const updatedBasket = [...basket];
-      const target = updatedBasket[targetIndex];
-  
-      if (target.count > 1) {
-        target.count -= 1;
-        target.totalPrice =parseFloat(( target.product.price * target.count).toFixed(2));
-      } else {
-        updatedBasket.splice(targetIndex, 1);
-      }
-  
-      setBasket(updatedBasket);
-      localStorage.setItem('basket', JSON.stringify(updatedBasket));
+
+  if(target){
+    target.count+=1
+    target.totalPrice=parseFloat((target.product.price * target.count).toFixed(2))
+    setBasket([...basket])
+    localStorage.setItem('basket', JSON.stringify([...basket]))
+      toast.success(`${product.name} added to basket!`);
+    } else  {
+      const baskets = {
+        product: product,
+        count: 1,
+        totalPrice: product.price
+      };
+      setBasket([...basket, baskets]);
+      localStorage.setItem("basket", JSON.stringify([...basket, baskets]));
+      toast.success(`${product.name} added to basket!`);
     }
   };
+
+  const handleBasketDelete = (id) => {
+    let basketdelete = basket.find(item => item.product._id == id);
+    basket.splice(basket.indexOf(basketdelete), 1);
+    setBasket([...basket]);
+    localStorage.setItem("basket", JSON.stringify([...basket]));
+    toast.success(`Product deleted from basket!`)
+
+  };
+
+  const decrementCounter = (baskets) => {
+    let target = basket.find((item) => item.product._id === baskets.product._id);
+
+    if (target.count > 1) {
+      target.count -= 1;
+      target.totalPrice =parseFloat(( target.product.price * target.count).toFixed(2));
+
+      setBasket([...basket]);
+      localStorage.setItem("basket", JSON.stringify([...basket]));
+      toast.success(`Product decrease from basket`)
+    } else {
+      const updatedBasket = basket.filter(item => item.product._id !== baskets.product._id);
+      setBasket(updatedBasket);
+      localStorage.setItem("basket", JSON.stringify(updatedBasket));
+
+    }
+  };
+
+
+const decreaseBasket=(baskets)=>{
+  let targetIndex=basket.findIndex((item)=>item.product._id===baskets.product._id)
+
+  if(targetIndex !== -1){
+    const updateBasket=[...basket]
+    const target=updateBasket[targetIndex]
   
-  
-  
+  if(target.count>1){
+    target.count -=1
+    target.totalPrice=parseFloat((target.count * target.product.price).toFixed(2))
+
+  }else{
+    updateBasket.splice(targetIndex,1)
+  }
+  setBasket(updateBasket)
+  localStorage.setItem('basket', JSON.stringify(updateBasket))
+}}
+
 
 
 
