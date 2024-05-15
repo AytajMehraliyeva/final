@@ -106,6 +106,7 @@ function App() {
     if (target.count > 1) {
       target.count -= 1;
       target.totalPrice =parseFloat(( target.product.price * target.count).toFixed(2));
+
       setBasket([...basket]);
       localStorage.setItem("basket", JSON.stringify([...basket]));
       toast.success(`Product decrease from basket`)
