@@ -59,11 +59,7 @@ function App() {
     setItem(sortedData);
   };
   
-  // const notSort = () => {
-  //   setItem([...original]);
-  //   setSort([]); 
-  // };
-
+  
   useEffect(() => {
     axios.get("http://localhost:3020/cards").then(res => {
       setItem(res.data);
@@ -73,13 +69,13 @@ function App() {
     });
   }, []);
 
-
+  
   const addToBasket = (product) => {
     let target = basket.find((baskets) => baskets.product._id === product._id);
 
     if (target) {
       target.count += 1;
-      target.totalPrice = target.product.price * target.count;
+      target.totalPrice=parseFloat((target.product.price * target.count).toFixed(2))
       setBasket([...basket]);
       localStorage.setItem("basket", JSON.stringify([...basket]));
       toast.success(`${product.name} added to basket!`);
@@ -120,6 +116,27 @@ function App() {
 
     }
   };
+
+
+const decreaseBasket=(baskets)=>{
+  let targetIndex=basket.findIndex((item)=>item.product._id===baskets.product._id)
+
+  if(targetIndex !== -1){
+    const updateBasket=[...basket]
+    const target=updateBasket[targetIndex]
+  
+  if(target.count>1){
+    target.count -=1
+    target.totalPrice=parseFloat((target.count * target.product.price).toFixed(2))
+
+  }else{
+    updateBasket.splice(targetIndex,1)
+  }
+  setBasket(updateBasket)
+  localStorage.setItem('basket', JSON.stringify(updateBasket))
+}}
+
+
 
 
   const data = {
