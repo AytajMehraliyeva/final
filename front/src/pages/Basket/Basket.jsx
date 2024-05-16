@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import MainContext from '../../context';
+import './Basket.scss'
 import { Toaster } from 'react-hot-toast';
 
 const Basket = () => {
