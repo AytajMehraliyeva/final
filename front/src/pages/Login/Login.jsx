@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
-
+import './Login.scss'
 function Login() {
     const [credentials, setCredentials] = useState({ email: '', password: '' });
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
-
+import './Register.scss'
 import toast, { Toaster } from 'react-hot-toast';
 import './Register'
 
@@ -28,7 +28,7 @@ toast.error('error')        }
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form  className='registerForm' onSubmit={handleSubmit}>
             <input type="text" name="name" value={userData.name} onChange={handleChange} placeholder="Name" />
             <input type="text" name="surname" value={userData.surname} onChange={handleChange} placeholder="Surname" />
             <input type="email" name="email" value={userData.email} onChange={handleChange} placeholder="Email" />
