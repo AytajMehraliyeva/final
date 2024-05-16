@@ -27,7 +27,7 @@ function Login() {
             <input type="password" name="password" value={credentials.password} onChange={handleChange} placeholder="Password" /> <br />
             <button type="submit">Login</button>
             <Toaster/>
-             <Link to={'register'}>Register</Link>
+             <Link to={'/register'}>Register</Link>
         </form>
     );
 }

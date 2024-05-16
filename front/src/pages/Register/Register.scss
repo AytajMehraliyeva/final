@@ -3,4 +3,13 @@
     border: 1px solid black;
     height: auto;
     margin: 120px auto;
+    input {
+        width: 55%;
+        margin: 10px;
+        outline: none;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid black;
+        font-size: 16px;
+    }
 }
