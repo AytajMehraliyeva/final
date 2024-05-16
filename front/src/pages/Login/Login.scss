@@ -1,6 +1,39 @@
 .loginForm {
-    width: 70%;
+    width: 55%;
+    padding: 20px 10px;
+    background-color: rgba(81, 0, 255, 0.306);
     border: 1px solid black;
     height: auto;
+    border-radius: 5px;
+    text-align: center;
     margin: 120px auto;
+    input {
+        width: 55%;
+        margin: 10px auto;
+        outline: none;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid black;
+        font-size: 16px;
+    }
+    button {
+        width: 130px;
+        padding: 10px 5px;
+        margin: 5px auto;
+        border: none;
+        border-radius: 4px;
+        text-align: center;
+        background-color: rgb(180, 180, 180);
+        font-size: 20px;
+        color: whitesmoke;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: gray;
+        font-size: 23px;
+    }
+    .login {
+        font-size: 20px;
+    }
 }
