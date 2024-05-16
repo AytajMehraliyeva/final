@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
+
 import toast, { Toaster } from 'react-hot-toast';
 import './Register'
 
@@ -19,7 +21,7 @@ function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3020/user/register', userData);
+            const response = await axios.post('https://backend-login-gwo4.onrender.com/user/register', userData);
 toast.success("Successfly register")            
         } catch (error) {
 toast.error('error')        }
@@ -33,7 +35,10 @@ toast.error('error')        }
             <input type="password" name="password" value={userData.password} onChange={handleChange} placeholder="Password" />
             <input type="number" name="age" value={userData.age} onChange={handleChange} placeholder="Age" />
             <button type="submit">Register</button>
+
+            <Link to={'login'}>You have account?</Link>
             <Toaster />
+
         </form>
 
     );

@@ -12,7 +12,7 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3020/user/login', credentials);
+            const response = await axios.post('https://backend-login-gwo4.onrender.com/user/login', credentials);
             toast.success('Logged in user:');
         } catch (error) {
             toast.error('Password or email is incorrect');
