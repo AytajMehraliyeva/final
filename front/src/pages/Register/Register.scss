@@ -26,11 +26,12 @@
         background-color: rgb(180, 180, 180);
         font-size: 20px;
         color: whitesmoke;
+        transition: 0.3s;
         cursor: pointer;
     }
     button:hover {
         background-color: gray;
-        width: 140px;
+        font-size: 23px;
     }
     .login {
         font-size: 20px;
