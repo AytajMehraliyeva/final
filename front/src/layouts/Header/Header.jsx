@@ -30,7 +30,7 @@ const Header = () => {
     <IoSearch />
     <LuUser2 />
     <Link to={'register'}> Register</Link>
-    <Link to={'basket'}><TiShoppingCart  /></Link>
+    <Link to={'basket'}><TiShoppingCart/></Link>
     </div>
 
     </div>
