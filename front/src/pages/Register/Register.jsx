@@ -36,7 +36,7 @@ toast.error('error')        }
             <input type="number" name="age" value={userData.age} onChange={handleChange} placeholder="Age" /> <br />
             <button type="submit">Register</button> <br />
                 <Toaster />
-            <Link to={'/login'}>Do you have your account?</Link>
+            <Link className='login' to={'/login'}>Do you have your account?</Link>
          
 
         </form>\
