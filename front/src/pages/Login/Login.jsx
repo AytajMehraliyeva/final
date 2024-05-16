@@ -25,9 +25,9 @@ function Login() {
         <form className='loginForm' onSubmit={handleSubmit}>
             <input type="email" name="email" value={credentials.email} onChange={handleChange} placeholder="Email" /> <br />
             <input type="password" name="password" value={credentials.password} onChange={handleChange} placeholder="Password" /> <br />
-            <button type="submit">Login</button>
+            <button type="submit">Login</button> <br />
             <Toaster/>
-             <Link to={'/register'}>Register</Link>
+             <Link className='register' to={'/register'}>Register</Link>
         </form>
     );
 }
