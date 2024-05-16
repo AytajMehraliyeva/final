@@ -1,9 +1,13 @@
 .decrease {
-    width: 70px;
+    width: 50px;
+    border: none;
+    border-radius: 25px;
 }
 
 .increase {
-    width: 70px;
+    width: 50px;
+    border: none;
+    border-radius: 25px;
 }
 
 .deleteBasket {
@@ -11,4 +15,6 @@
     color: white;
     width: 100px;
     padding: 10px;
+    border: none;
+    border-radius: 4px;
 }
