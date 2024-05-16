@@ -1,7 +1,7 @@
 .registerForm {
-    width: 40%;
-    padding: 10px;
-    background-color: rgba(255, 0, 0, 0.288);
+    width: 55%;
+    padding: 20px 10px;
+    background-color: rgba(0, 255, 34, 0.306);
     border: 1px solid black;
     height: auto;
     border-radius: 5px;
@@ -23,7 +23,9 @@
         border: none;
         border-radius: 4px;
         text-align: center;
-        background-color: gray;
+        background-color: rgb(180, 180, 180);
+        font-size: 20px;
+        color: whitesmoke;
         cursor: pointer;
     }
     .login {
