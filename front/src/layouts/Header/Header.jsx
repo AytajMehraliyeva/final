@@ -31,6 +31,7 @@ const Header = () => {
     <LuUser2 />
     <Link to={'register'}> Register</Link>
     <Link to={'basket'}><TiShoppingCart/></Link>
+    <Link to={'register'}>Register</Link>
     </div>
 
     </div>
