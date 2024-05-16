@@ -1,5 +1,7 @@
 .registerForm {
-    width: 70%;
+    width: 40%;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.539);
     border: 1px solid black;
     height: auto;
     margin: 120px auto;
@@ -11,5 +13,13 @@
         border-radius: 10px;
         border: 1px solid black;
         font-size: 16px;
+    }
+    button {
+        width: 160px;
+        padding: 4px;
+        margin: 5px;
+        text-align: center;
+        background-color: gray;
+        cursor: pointer;
     }
 }

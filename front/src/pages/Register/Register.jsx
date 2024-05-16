@@ -34,7 +34,7 @@ toast.error('error')        }
             <input type="email" name="email" value={userData.email} onChange={handleChange} placeholder="Email" /> <br />
             <input type="password" name="password" value={userData.password} onChange={handleChange} placeholder="Password" /> <br />
             <input type="number" name="age" value={userData.age} onChange={handleChange} placeholder="Age" /> <br />
-            <button type="submit">Register</button>
+            <button type="submit">Register</button> <br />
                 <Toaster />
             <Link to={'/login'}>Do you have your account?</Link>
          
