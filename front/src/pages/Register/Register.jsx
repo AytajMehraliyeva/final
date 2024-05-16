@@ -22,13 +22,13 @@ function Register() {
         e.preventDefault();
         try {
             const response = await axios.post('https://backend-login-gwo4.onrender.com/user/register', userData);
-toast.success("Successfly register")            
+toast.success(`${userData.name} successfly register`)            
         } catch (error) {
 toast.error('error')        }
     }
 
-    return (
-        <form  className='registerForm' onSubmit={handleSubmit}>
+    return (<>
+        <form className='registerForm' onSubmit={handleSubmit}>
             <input type="text" name="name" value={userData.name} onChange={handleChange} placeholder="Name" />
             <input type="text" name="surname" value={userData.surname} onChange={handleChange} placeholder="Surname" />
             <input type="email" name="email" value={userData.email} onChange={handleChange} placeholder="Email" />
@@ -39,7 +39,8 @@ toast.error('error')        }
             <Link to={'login'}>You have account?</Link>
             <Toaster />
 
-        </form>
+        </form>\
+        </>
 
     );
 }
