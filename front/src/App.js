@@ -61,7 +61,7 @@ function App() {
   
   
   useEffect(() => {
-    axios.get("http://localhost:3020/cards").then(res => {
+    axios.get("https://final-xb40.onrender.com/cards").then(res => {
       setItem(res.data);
       console.log(res.data);
     }).catch(err => {
