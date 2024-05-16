@@ -28,6 +28,10 @@
         color: whitesmoke;
         cursor: pointer;
     }
+    button:hover {
+        background-color: gray;
+        width: 140px;
+    }
     .login {
         font-size: 20px;
     }
